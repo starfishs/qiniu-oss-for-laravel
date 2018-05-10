@@ -10,7 +10,7 @@ Then add the service provider to `config/app.php`
 Gming\QiniuOss\QiniuOssServiceProvider::class
 ```
 
-Publish the migrations file:
+Publish the config file:
 
 ```sh
 $ php artisan vendor:publish --provider='Gming\QiniuOss\QiniuOssServiceProvider' 
