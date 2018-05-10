@@ -1,0 +1,25 @@
+{
+    "name": "gming/qiniu-oss-for-laravel",
+    "authors": [
+        {
+            "name": "gming",
+            "email": "gangmingcool@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gming\\QiniuOss\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gming\\QiniuOss\\QiniuOssServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
