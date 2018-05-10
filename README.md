@@ -1,7 +1,7 @@
 # qiniu-oss-for-laravel
 # Installation
 ```
-$ composer require gming/qiniu-oss-for-laravel
+$ composer require gming/qiniu-oss-for-laravel --prefer-source
 ```
 
 Then add the service provider to `config/app.php`
