@@ -41,7 +41,7 @@ trait QiniuOss{
                     'Content-Type' => 'application/json',
                 ];
         try {
-            $response = $http->post('http://storage.ms.hejunweilai.com/api/storage/token/upload',[
+            $response = $http->post($url,[
                 'json'    => $params,
                 'headers' => $headers,
             ]);
