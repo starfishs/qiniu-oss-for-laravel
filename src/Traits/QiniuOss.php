@@ -45,7 +45,7 @@ trait QiniuOss{
                 'json'    => $params,
                 'headers' => $headers,
             ]);
-            return $response->getBody();
+            return \GuzzleHttp\json_decode($response->getBody(), true);
         } catch (\Exception $e) {
             return ['code' => $e->getCode(), 'message' => var_export($e->getMessage(), true)];
         }
@@ -75,7 +75,7 @@ trait QiniuOss{
                 'json' => $params,
                 'headers' => $header
             ]);
-            return $response->getBody();
+            return \GuzzleHttp\json_decode($response->getBody(), true);
         } catch (\Exception $e) {
             return ['code' => $e->getCode(), 'message' => $e->getMessage()];
         }
@@ -99,7 +99,7 @@ trait QiniuOss{
             $response = $http->get($url,[
                 'headers' => $header
             ]);
-            return $response->getBody();
+            return \GuzzleHttp\json_decode($response->getBody());
         } catch (\Exception $e) {
             return ['code' => $e->getCode(), 'message' => $e->getMessage()];
         }
