@@ -13,10 +13,11 @@ use InvalidArgumentException;
 trait QiniuOss{
 
     /**
-     * @param $fileUri file path + file name
-     * @param $maxFileSize the file max size, Units:Byte ,default 1GB
-     * @param $ttl the file validity period, default: 3600s
-     * @param $customParam
+     * @param string $fileUri file path + file name
+     * @param integer $maxFileSize the file max size, Units:Byte ,default 1GB
+     * @param integer $ttl the file validity period, default: 3600s
+     * @param string $customParam
+     * @return array|mixed
      */
     public  function uploadCertificate($fileUri, $maxFileSize, $ttl = 3600, $customParam = '')
     {
@@ -52,8 +53,9 @@ trait QiniuOss{
     }
 
     /**
-     * @param $fileUri file path + file name
+     * @param string $fileUri file path + file name
      * @param string $fileName
+     * @return array|mixed
      */
     public  function fileInfo($fileUri, $fileName = '')
     {
@@ -65,14 +67,12 @@ trait QiniuOss{
             throw new InvalidArgumentException("the clientId is not set. Please set your config.");
         }
         $header = [
-            'ClientId' => $clientId,
-            'Content-Type' => 'application/json'
+            'ClientId' => $clientId
         ];
-        $params = ['key' => $fileUri];
-        if ($fileName) $params['fileName'] = $fileName;
+        $url .= "?key=".$fileUri;
+        if ($fileName) $url .=  "&fileName=".$fileName;
         try {
             $response = $http->get($url,[
-                'json' => $params,
                 'headers' => $header
             ]);
             return \GuzzleHttp\json_decode($response->getBody(), true);
@@ -81,6 +81,9 @@ trait QiniuOss{
         }
     }
 
+    /**
+     * @return array|mixed
+     */
     public function fileBaseUrl()
     {
         $http = new Client();
