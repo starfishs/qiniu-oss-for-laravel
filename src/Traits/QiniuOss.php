@@ -67,14 +67,12 @@ trait QiniuOss{
             throw new InvalidArgumentException("the clientId is not set. Please set your config.");
         }
         $header = [
-            'ClientId' => $clientId,
-            'Content-Type' => 'application/json'
+            'ClientId' => $clientId
         ];
-        $params = ['key' => $fileUri];
-        if ($fileName) $params['fileName'] = $fileName;
+        $url .= "?key=".$fileUri;
+        if ($fileName) $url .=  "&fileName=".$fileName;
         try {
             $response = $http->get($url,[
-                'json' => $params,
                 'headers' => $header
             ]);
             return \GuzzleHttp\json_decode($response->getBody(), true);
