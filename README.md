@@ -1,4 +1,6 @@
 # qiniu-oss-for-laravel
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FIanGely%2Fqiniu-oss-for-laravel.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FIanGely%2Fqiniu-oss-for-laravel?ref=badge_shield)
+
 # Installation
 ```
 $ composer require gming/qiniu-oss-for-laravel --prefer-source
@@ -38,3 +40,7 @@ $this->uploadCertificate($fileUrl, $maxFileSize, $ttl = 3600, $customParam = '')
 $this->fileInfo($fileUri, $fileName = '')
 $this->fileBaseUrl()
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FIanGely%2Fqiniu-oss-for-laravel.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FIanGely%2Fqiniu-oss-for-laravel?ref=badge_large)
