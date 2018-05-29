@@ -16,10 +16,10 @@ trait QiniuOss{
      * @param string $fileUri file path + file name
      * @param integer $maxFileSize the file max size, Units:Byte ,default 1GB
      * @param integer $ttl the file validity period, default: 3600s
-     * @param string $customParam
+     * @param array $customParam
      * @return array|mixed
      */
-    public  function uploadCertificate($fileUri, $maxFileSize, $ttl = 3600, $customParam = '')
+    public  function uploadCertificate($fileUri, $maxFileSize, $ttl = 3600, $customParam = [])
     {
 
         if (!($url = config('qiniu-oss.apiUrls.certificate'))){
