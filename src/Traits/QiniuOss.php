@@ -102,7 +102,7 @@ trait QiniuOss{
             $response = $http->get($url,[
                 'headers' => $header
             ]);
-            return \GuzzleHttp\json_decode($response->getBody());
+            return \GuzzleHttp\json_decode($response->getBody(), true);
         } catch (\Exception $e) {
             return ['code' => $e->getCode(), 'message' => $e->getMessage()];
         }
